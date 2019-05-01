@@ -8,9 +8,9 @@ const getGeoCode = (address, callback) => {
             json: true
         }, (err, response) => {
             if (err) {
-                callback('Unable to connect to location services', null)
+                callback('Unable to connect to location services', undefined)
             } else if (response.body.features.length === 0) {
-                callback('Unable to find location. Try another search', null)
+                callback('Unable to find location. Try another search', undefined)
             } else {
                 const data = response.body.features[0].center;
                 callback(null, {
