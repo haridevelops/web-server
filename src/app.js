@@ -30,10 +30,14 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-    res.send({
-        forecase: 'This is the forecast',
-        location: 'chennai'
-    });
+    if (!req.query.address) {
+        res.send({ error: 'You musst provide a Address' });
+    } else {
+        res.send({
+            forecase: 'This is the forecast',
+            location: req.query.address
+        });
+    }
 })
 
 app.get('/help/*', (req, res) => {
