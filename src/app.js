@@ -27,7 +27,7 @@ app.get('', (req, res) => {
 
 /** About page */
 app.get('/about', (req, res) => {
-    res.render('about', { title: 'About me', text: 'About page' })
+    res.render('about', { title: 'About', text: 'This page was created by Harisudhan. It uses data from mapbox.com and darksky.net!' })
 })
 
 /** Help Page */
