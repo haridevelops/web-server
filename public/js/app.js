@@ -9,7 +9,7 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     successResponse.innerHTML = 'loading...'
     failureResponse.innerHTML = ''
-    fetch(`http://localhost:3000/weather?address=${searchInput.value}`).then((response) => {
+    fetch(`/weather?address=${searchInput.value}`).then((response) => {
         response.json().then(data => {
             if (data.error) {
                 successResponse.innerHTML = data.error
