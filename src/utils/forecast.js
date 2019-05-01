@@ -1,9 +1,9 @@
 const request = require('request')
 
-const getForeCast = (data, callback) => {
+const getForeCast = (latitude, longitude, callback) => {
     request(
         {
-            url: `https://api.darksky.net/forecast/8b82912fc1e0cf52f29b43801b750649/${data[1]},${data[0]}?units=us`,
+            url: `https://api.darksky.net/forecast/8b82912fc1e0cf52f29b43801b750649/${latitude},${longitude}?units=us`,
             method: 'GET',
             json: true 
         }, (err, response) => {
@@ -13,7 +13,7 @@ const getForeCast = (data, callback) => {
                 callback('Unable to find location', null)
             } else {
                 const data = response.body.currently;
-                callback(null, 'It is currently '+ data.temperature+ ' degrees out. There is '+ data.precipProbability +'% chance of rain')
+                callback(null, data.summary + '. It is currently '+ data.temperature+ ' degrees out. There is '+ data.precipProbability +'% chance of rain')
             }
         }
     )
