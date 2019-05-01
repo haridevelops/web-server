@@ -13,7 +13,7 @@ const getForeCast = (latitude, longitude, callback) => {
                 callback('Unable to find location', null)
             } else {
                 const data = response.body.currently;
-                callback(null, data.summary + '. It is currently '+ data.temperature+ ' degrees out. There is '+ data.precipProbability +'% chance of rain')
+                callback(null, data.summary + '. It is currently '+ data.temperature+ ' degrees out. High today is ' + response.body.daily.data[0].temperatureHigh + ' with a low of ' + response.body.daily.data[0].temperatureLow +' There is '+ data.precipProbability +'% chance of rain')
             }
         }
     )
